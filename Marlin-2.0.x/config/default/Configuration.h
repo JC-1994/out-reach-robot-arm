@@ -130,15 +130,15 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_MEGACONTROLLER
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+//#define CUSTOM_MACHINE_NAME "SCARA ARM"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
-//#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+#define MACHINE_UUID "a60993ed-de35-4f7f-912b-fd9c78526e3f"
 
 // @section extruder
 
@@ -330,9 +330,9 @@
   //#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
   //#define PSU_POWERUP_DELAY 100   // (ms) Delay for the PSU to warm up to full power
 
-  //#define AUTO_POWER_CONTROL  // Enable automatic control of the PS_ON pin
+  //#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
   #if ENABLED(AUTO_POWER_CONTROL)
-    #define AUTO_POWER_FANS           // Turn on PSU if fans need power
+    #define AUTO_POWER_FANS         // Turn on PSU if fans need power
     #define AUTO_POWER_E_FANS
     #define AUTO_POWER_CONTROLLERFAN
     #define AUTO_POWER_CHAMBER_FAN
@@ -588,7 +588,7 @@
 
 // Uncomment one of these options to enable CoreXY, CoreXZ, or CoreYZ kinematics
 // either in the usual order or reversed
-//#define COREXY
+#define COREXY
 //#define COREXZ
 //#define COREYZ
 //#define COREYX
@@ -718,19 +718,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {71.11, 71.11, 400, 300} 
-//^taken from configuration.h in marlin-for-scara-arm-development folder under arm research folder
-//in google drive, could be wrong and may need to adjust later
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          {200, 200, 30, 25}
-//^taken from configuration.h in marlin-for-scara-arm-development folder under arm research folder
-//in google drive, could be wrong and may need to adjust later
-
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -743,10 +738,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 600, 600, 20, 1000 }
-//^taken from configuration.h in marlin-for-scara-arm-development folder under arm research folder
-//in google drive, could be wrong and may need to adjust later
-
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -761,12 +753,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          300    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   300    // X, Y, Z acceleration for travel (non printing) moves
-//^taken from configuration.h in marlin-for-scara-arm-development folder under arm research folder
-//in google drive, could be wrong and may need to adjust later
-
+#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -776,11 +765,11 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define CLASSIC_JERK
+//#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 12.0
-  #define DEFAULT_YJERK 12.0
-  #define DEFAULT_ZJERK  0.4
+  #define DEFAULT_XJERK 10.0
+  #define DEFAULT_YJERK 10.0
+  #define DEFAULT_ZJERK  0.3
 
   //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
   #if ENABLED(LIMITED_JERK_EDITING)
@@ -1032,7 +1021,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR false 
+#define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 
 // @section extruder
@@ -1072,7 +1061,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 80
+#define Z_MAX_POS 200
 
 /**
  * Software Endstops
@@ -1084,7 +1073,7 @@
  */
 
 // Min software endstops constrain movement within minimum coordinate bounds
-//#define MIN_SOFTWARE_ENDSTOPS
+#define MIN_SOFTWARE_ENDSTOPS
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
@@ -1092,7 +1081,7 @@
 #endif
 
 // Max software endstops constrain movement within maximum coordinate bounds
-//#define MAX_SOFTWARE_ENDSTOPS
+#define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
   #define MAX_SOFTWARE_ENDSTOP_X
   #define MAX_SOFTWARE_ENDSTOP_Y
@@ -1412,7 +1401,7 @@
  *   M501 - Read settings from EEPROM. (i.e., Throw away unsaved changes)
  *   M502 - Revert settings to "factory" defaults. (Follow with M500 to init the EEPROM.)
  */
-#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
+//#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
 #if ENABLED(EEPROM_SETTINGS)
@@ -1425,9 +1414,9 @@
 // When enabled Marlin will send a busy status message to the host
 // every couple of seconds when it can't accept commands.
 //
-//#define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
-//#define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
-//#define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
+#define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
+#define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
+#define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
 
 //
 // M100 Free Memory Watcher
@@ -1557,7 +1546,7 @@
  *   M76 - Pause the print job timer
  *   M77 - Stop the print job timer
  */
-//#define PRINTJOB_TIMER_AUTOSTART
+#define PRINTJOB_TIMER_AUTOSTART
 
 /**
  * Print Counter
