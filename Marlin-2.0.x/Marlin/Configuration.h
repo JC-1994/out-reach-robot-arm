@@ -76,8 +76,8 @@
   #define SCARA_SEGMENTS_PER_SECOND 200
 
   // Length of inner and outer support arms. Measure arm lengths precisely.
-  #define SCARA_LINKAGE_1  200    // (mm)
-  #define SCARA_LINKAGE_2 150    // (mm)
+  #define SCARA_LINKAGE_1  200//10//200    // (mm)
+  #define SCARA_LINKAGE_2  150//10//150    // (mm)
 
   // SCARA tower offset (position of Tower relative to bed zero position)
   // This needs to be reasonably accurate as it defines the printbed position in the SCARA space.
@@ -2221,6 +2221,7 @@
 
 /**
  * R/C SERVO support
+ * 
  * Sponsored by TrinityLabs, Reworked by codexmas
  */
 
