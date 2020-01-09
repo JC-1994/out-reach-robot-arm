@@ -132,7 +132,7 @@ are rewrite based off of Hydra-mmm firmware.
 
 #define MIN_HARDWARE_ENDSTOP_X false								// True Jika Endstop berada pada posisi X minimum, false jika tidak
 #define MIN_HARDWARE_ENDSTOP_Y true							// True Jika Endstop berada pada posisi Y minimum, false jika tidak
-#define MIN_HARDWARE_ENDSTOP_Z true							// True Jika Endstop berada pada posisi Z minimum, false jika tidak
+#define MIN_HARDWARE_ENDSTOP_Z false							// True Jika Endstop berada pada posisi Z minimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_X true							// True Jika Endstop berada pada posisi X MAXimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_Y true								// True Jika Endstop berada pada posisi Y MAXimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_Z true								// True Jika Endstop berada pada posisi Z MAXimum, false jika tidak
@@ -196,30 +196,30 @@ are rewrite based off of Hydra-mmm firmware.
 #define Z_PROBE_PIN ORIG_Z_MIN_PIN  
 
 #define Z_PROBE_Z_OFFSET 0
-#define Z_PROBE_Z_OFFSET_MODE 0
+#define Z_PROBE_Z_OFFSET_MODE 1
 #define UI_BED_COATING 1
-#define Z_PROBE_BED_DISTANCE 10
+#define Z_PROBE_BED_DISTANCE 0
 #define Z_PROBE_PULLUP 1
-#define Z_PROBE_ON_HIGH 1
+#define Z_PROBE_ON_HIGH 0
 #define Z_PROBE_X_OFFSET 0
 #define Z_PROBE_Y_OFFSET 0
 #define Z_PROBE_WAIT_BEFORE_TEST 0
 #define Z_PROBE_SPEED 10
 #define Z_PROBE_XY_SPEED 100
-#define Z_PROBE_SWITCHING_DISTANCE 3
+#define Z_PROBE_SWITCHING_DISTANCE 1
 #define Z_PROBE_REPETITIONS 1
-#define Z_PROBE_HEIGHT 0
+#define Z_PROBE_HEIGHT 120
 #define Z_PROBE_START_SCRIPT ""
 #define Z_PROBE_FINISHED_SCRIPT ""
 #define Z_PROBE_REQUIRES_HEATING 0
 #define Z_PROBE_MIN_TEMPERATURE 150
-#define Z_PROBE_X1 -70
-#define Z_PROBE_Y1 -70
-#define Z_PROBE_X2 70
-#define Z_PROBE_Y2 -70
-#define Z_PROBE_X3 -70
-#define Z_PROBE_Y3 70
-#define BED_LEVELING_METHOD 1
+#define Z_PROBE_X1 640//-15
+#define Z_PROBE_Y1 110//-15
+#define Z_PROBE_X2 0
+#define Z_PROBE_Y2 0
+#define Z_PROBE_X3 -15
+#define Z_PROBE_Y3 -40
+#define BED_LEVELING_METHOD 0
 #define BED_CORRECTION_METHOD 0
 #define BED_LEVELING_GRID_SIZE 5
 #define BED_LEVELING_REPETITIONS 1
