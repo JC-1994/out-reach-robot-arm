@@ -132,7 +132,7 @@ are rewrite based off of Hydra-mmm firmware.
 
 #define MIN_HARDWARE_ENDSTOP_X false								// True Jika Endstop berada pada posisi X minimum, false jika tidak
 #define MIN_HARDWARE_ENDSTOP_Y true							// True Jika Endstop berada pada posisi Y minimum, false jika tidak
-#define MIN_HARDWARE_ENDSTOP_Z false							// True Jika Endstop berada pada posisi Z minimum, false jika tidak
+#define MIN_HARDWARE_ENDSTOP_Z true							// True Jika Endstop berada pada posisi Z minimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_X true							// True Jika Endstop berada pada posisi X MAXimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_Y true								// True Jika Endstop berada pada posisi Y MAXimum, false jika tidak
 #define MAX_HARDWARE_ENDSTOP_Z true								// True Jika Endstop berada pada posisi Z MAXimum, false jika tidak
@@ -147,7 +147,7 @@ are rewrite based off of Hydra-mmm firmware.
 
 #define ENDSTOP_X_MIN_INVERTING false
 #define ENDSTOP_Y_MIN_INVERTING false
-#define ENDSTOP_Z_MIN_INVERTING false
+#define ENDSTOP_Z_MIN_INVERTING true
 #define ENDSTOP_X_MAX_INVERTING false
 #define ENDSTOP_Y_MAX_INVERTING false
 #define ENDSTOP_Z_MAX_INVERTING false
@@ -190,9 +190,9 @@ are rewrite based off of Hydra-mmm firmware.
 
 // #################### Z-Probing #####################
 
-#define DISTORTION_CORRECTION 1     // Menyesuaikan ketidakrataan papan 
-#define FEATURE_AUTOLEVEL 1         // Menyesuaikan kemiringan papan
-#define FEATURE_Z_PROBE 1           // Z probe harus aktif untuk distortion correction & autolevel  
+#define DISTORTION_CORRECTION 0     // Menyesuaikan ketidakrataan papan 
+#define FEATURE_AUTOLEVEL 0        // Menyesuaikan kemiringan papan
+#define FEATURE_Z_PROBE 0           // Z probe harus aktif untuk distortion correction & autolevel  
 #define Z_PROBE_PIN ORIG_Z_MIN_PIN  
 
 #define Z_PROBE_Z_OFFSET 0
@@ -206,7 +206,7 @@ are rewrite based off of Hydra-mmm firmware.
 #define Z_PROBE_WAIT_BEFORE_TEST 0
 #define Z_PROBE_SPEED 10
 #define Z_PROBE_XY_SPEED 100
-#define Z_PROBE_SWITCHING_DISTANCE 1
+#define Z_PROBE_SWITCHING_DISTANCE 5
 #define Z_PROBE_REPETITIONS 1
 #define Z_PROBE_HEIGHT 120
 #define Z_PROBE_START_SCRIPT ""
